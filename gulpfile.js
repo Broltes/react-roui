@@ -9,7 +9,7 @@ var path = require("path");
 //
 var config = require('./webpack.dev.config.js');
 var devport = config.devport;
-var demoDist = '../github.io/tloader';
+var demoDist = '../github.io/ui';
 
 gulp.task('demos-clean', function () {
     return del([
