@@ -1,0 +1,215 @@
+@color: #333;
+@bg: #fff;
+@bg-dark: #EFEFF4;
+@bg-mask: rgba(0,0,0,.7);
+
+// 透明遮罩层
+.ui-mask {
+    position: fixed;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+    z-index: 1000;
+
+    // 黑色半透明
+    &.dark{
+        background: @bg-mask;
+    }
+}
+
+.ui-loading{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 1.5rem;
+    width: 1em;
+    height: 1em;
+    border: 2px solid darken(@bg-dark, 30%);
+    border-top-color: #fff;
+    border-radius: 100%;
+    animation: circle .8s infinite linear;
+
+    #ui-waiting &{
+        border: 2px solid #fff;
+        border-top-color: darken(@bg-dark, 30%);
+    }
+}
+
+@keyframes circle {
+    100% { transform: rotate(360deg); }
+}
+
+#ui-waiting {
+    position: fixed;
+    z-index: 3;
+    font-size: 3.5rem;
+    width: 1em;
+    height: 1em;
+    top: 35%;
+    left: 50%;
+    margin-left: -.5em;
+    border-radius: .1em;
+    background: @bg-mask;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#ui-toast{
+    position: fixed;
+    z-index: 3;
+    top: 25%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+
+    // toast msg
+    p{
+        display: inline-block;
+        color: #fff;
+        background: @bg-mask;
+        border-radius: .2em;
+        padding: 1em;
+        min-width: 5em;
+    }
+}
+
+// action sheet
+#ui-menu{
+    @t: .3s;
+
+    .ui-mask{
+        background-color: #000;
+        opacity: .6;
+        will-change: opacity;
+    }
+
+    .ui-menus{
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        z-index: 2000;
+        background-color: @bg-dark;
+        will-change: transform;
+
+        ul{
+            background: @bg;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+
+            // 取消按钮
+            &:last-child{
+                margin-top: .4em;
+                color: lighten(@color, 25%);
+            }
+
+            li{
+                padding: .8em 0;
+                text-align: center;
+                border-top: 1px solid darken(@bg, 9%);
+
+                &:first-child{
+                    border: none;
+                }
+
+                &:active{
+                    background-color: darken(@bg, 9%);
+                }
+            }
+        }
+    }
+
+    &.ui-menu-enter {
+        .ui-mask{
+            opacity: 0;
+        }
+        .ui-menus{
+            transform: translateY(100%);
+        }
+    }
+    &.ui-menu-enter-active {
+        .ui-mask{
+            opacity: .6;
+            transition: opacity @t;
+        }
+        .ui-menus{
+            transform: translateY(0);
+            transition: transform @t;
+        }
+    }
+    &.ui-menu-leave-active {
+        .ui-mask{
+            opacity: 0;
+            transition: opacity @t;
+        }
+        .ui-menus{
+            transform: translateY(100%);
+            transition: transform @t;
+        }
+    }
+}
+
+#ui-dialog {
+    display: none;
+
+    &.on{
+        display: block;
+    }
+
+    .body{
+        position: fixed;
+        z-index: 2000;
+        width: 85%;
+        max-width: 20em;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #FAFAFC;
+        text-align: center;
+        border-radius: .2em;
+    }
+
+    // title
+    h2 {
+        font-weight: bolder;
+        font-size: 1.1em;
+        margin: 1em;
+    }
+
+    // content
+    p{
+        margin: 1.5em 2em;
+        font-size: .9em;
+        color: lighten(@color, 20%);
+        line-height: 1.5em;
+        text-align: left;
+    }
+
+    // btns
+    .actions {
+        line-height: 2.5;
+        margin-top: 1em;
+        font-size: 1em;
+        display: flex;
+
+        @border-color: darken(@bg, 20%);
+        border-top: 1px solid @border-color;
+
+        a{
+            display: block;
+            flex: 1;
+            border-left: 1px solid @border-color;
+
+            &:first-child{
+                border: none;
+            }
+
+            &.primary{
+                color: #08BF06;
+            }
+        }
+    }
+}
