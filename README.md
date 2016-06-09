@@ -1,6 +1,7 @@
 # react-roui
-Render Once UI
-适合移动端的简单交互组件
+Render Once UI 适合移动端的简单交互组件
+
+`npm install react-roui`
 
 ## Live demo
 [https://broltes.github.io/ui](https://broltes.github.io/ui)
@@ -84,3 +85,6 @@ export default React.createClass({
 'webpack-dev-server/client?http://dev.broltes.com:' + devport,
 ```
 将环境修改为自己的。
+
+## Thanks
+[https://github.com/weui/weui](https://github.com/weui/weui)

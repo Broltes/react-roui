@@ -1,6 +1,6 @@
 {
   "name": "react-roui",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "React Interactions, Render Once Use Anywhere",
   "main": "./src/react-roui.jsx",
   "scripts": {
@@ -50,5 +50,6 @@
   },
   "dependencies": {
     "react-addons-css-transition-group": "^15.1.0"
-  }
+  },
+  "publishConfig": {"registry":"https://registry.npmjs.org"}
 }
