@@ -7,8 +7,9 @@ var path = require("path");
 
 // demos tasks
 //
-var devport = 6001;
-var demoDist = '../github.io/ui';
+var config = require('./webpack.dev.config.js');
+var devport = config.devport;
+var demoDist = '../github.io/tloader';
 
 gulp.task('demos-clean', function () {
     return del([
@@ -18,8 +19,6 @@ gulp.task('demos-clean', function () {
     });
 });
 gulp.task("demos-build", function(callback) {
-    var config = require('./webpack.dev.config.js');
-
     config.entry = config.entry.slice(-2);
     config.output.path = path.join(__dirname, demoDist);
     config.plugins = [

@@ -1,13 +1,11 @@
 var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-
 var path = require("path");
-var devport = 6001;
 
 var node_modules_dir = path.resolve(__dirname, 'node_modules');
 module.exports = {
+    devport: 6001,
     entry: [
-        'webpack-dev-server/client?http://dev.broltes.com:' + devport,
         'webpack/hot/only-dev-server',
         'babel-polyfill',
         './demos/app.jsx',
