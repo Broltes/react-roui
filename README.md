@@ -3,7 +3,7 @@ Render Once UI
 适合移动端的简单交互组件
 
 ## Live demo
-[https://github.com/weui/weui](https://github.com/weui/weui)
+[https://broltes.github.io/ui](https://broltes.github.io/ui)
 ## Usage
 ```js
 import React from 'react';
