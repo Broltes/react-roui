@@ -1,4 +1,5 @@
-# react-ui
+# react-roui
+Render Once UI
 适合移动端的简单交互组件
 
 ## Live demo
