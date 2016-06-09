@@ -46,4 +46,4 @@ gulp.task('demos-server', function () {
         port: devport
     });
 });
-gulp.task('demos', ['demos-clean', 'demos-webpack', 'demos-server']);
+gulp.task('demos', ['demos-clean', 'demos-build', 'demos-server']);
