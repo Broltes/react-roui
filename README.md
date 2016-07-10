@@ -80,12 +80,5 @@ export default React.createClass({
 
 ```
 
-## Development
-开发时注意设置 webpack.dev.config.js 的entry：
-```js
-'webpack-dev-server/client?http://dev.broltes.com:' + devport,
-```
-将环境修改为自己的。
-
 ## Thanks
 [https://github.com/weui/weui](https://github.com/weui/weui)

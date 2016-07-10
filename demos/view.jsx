@@ -3,7 +3,8 @@ import React from 'react';
 import ui from 'react-roui';
 
 export default React.createClass({
-    render: function(){
+    render(){
+        window.ui = ui;
 
         function showModalWaiting() {
             ui.showWaiting(1);
