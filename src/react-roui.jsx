@@ -37,7 +37,7 @@ var Menu = React.createClass({
             btns: []
         };
     },
-    componentDidMount: function() {
+    componentWillMount: function() {
         setMenuState = this.setState.bind(this);
     },
     handleClick: function(i) {
@@ -113,8 +113,6 @@ var Dialog = React.createClass({
 var setState;
 export var UI = React.createClass({
     getInitialState: function() {
-        var that = this;
-
         return {
             waiting: 0,
             toast: '',
@@ -124,7 +122,7 @@ export var UI = React.createClass({
             menuAction: function(){}
         };
     },
-    componentDidMount: function() {
+    componentWillMount: function() {
         setState = this.setState.bind(this);
     },
     render: function() {
@@ -136,6 +134,7 @@ export var UI = React.createClass({
                 <Toast toast={state.toast}/>
                 <Menu/>
                 <Dialog/>
+                {this.props.children}
             </div>
         );
     }
