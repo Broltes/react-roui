@@ -54,14 +54,18 @@ var Menu = React.createClass({
 
                 return <li key={i} onClick={() => that.handleClick(i)} dangerouslySetInnerHTML={btn}/>;
             });
+            var title = this.state.title ? (
+                <h2>{this.state.title}</h2>
+            ) : null;
 
             body = (
                 <div id="ui-menu">
                     <div className="ui-menus">
+                        {title}
                         <ul>{btns}</ul>
-                        <ul><li onClick={() => this.handleClick(-1)}>取消</li></ul>
+                        <ul><li onClick={() => this.handleClick(NaN)}>取消</li></ul>
                     </div>
-                    <div className="ui-mask" onClick={() => this.handleClick(-1)}/>
+                    <div className="ui-mask" onClick={() => this.handleClick(NaN)}/>
                 </div>
             );
         }
@@ -167,10 +171,17 @@ export default {
     })(),
 
     menu: function(options){
-        setMenuState(Object.assign({ state: 1}, options));
+        setMenuState(Object.assign({
+            state: 1,
+            title: ''
+        }, options));
     },
 
     dialog: function(options){
-        setDialogState(Object.assign({ state: 1}, options));
+        setDialogState(Object.assign({
+            state: 1,
+            title: '',
+            cnt: ''
+        }, options));
     }
 };
