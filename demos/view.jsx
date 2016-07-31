@@ -13,6 +13,7 @@ export default React.createClass({
 
         function menu() {
             ui.menu({
+                title: '请选择喜欢的数字',
                 btns: [0,'<a class="test">1</a>'],
 
                 action: function(i){

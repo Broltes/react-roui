@@ -2,7 +2,6 @@ var webpack = require('webpack');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 var path = require('path');
 var devport = 6001;
-var assets = 'demos';
 
 module.exports = {
     context: path.resolve('demos'),
@@ -34,7 +33,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loaders: [
                     'react-hot',
-                    'babel?presets[]=react,presets[]=es2015'
+                    'babel'
                 ]
             }, {
                 test: /\.less$/,

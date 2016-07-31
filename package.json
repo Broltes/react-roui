@@ -4,11 +4,11 @@
   "description": "React Interactions, Render Once Use Anywhere",
   "main": "./lib/react-roui.js",
   "scripts": {
-    "start": "webpack-dev-server --hot --config webpack.dev.config.js",
-    "build": "babel src --out-dir lib && cp src/*.less lib/",
+    "dev": "webpack-dev-server --hot --config webpack.dev.config.js",
     "demos": "webpack -p --optimize-dedupe --progress --config webpack.demos.config.js",
     "clean:demos": "rm -rf ../github.io/ui",
     "clean:lib": "rm -rf lib/",
+    "build": "babel src --out-dir lib && cp src/*.less lib/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
