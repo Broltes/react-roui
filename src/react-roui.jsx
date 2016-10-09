@@ -63,9 +63,9 @@ var Menu = React.createClass({
                     <div className="ui-menus">
                         {title}
                         <ul>{btns}</ul>
-                        <ul><li onClick={() => this.handleClick(NaN)}>取消</li></ul>
+                        <ul><li onClick={() => this.handleClick(-1)}>取消</li></ul>
                     </div>
-                    <div className="ui-mask" onClick={() => this.handleClick(NaN)}/>
+                    <div className="ui-mask" onClick={() => this.handleClick(-1)}/>
                 </div>
             );
         }
