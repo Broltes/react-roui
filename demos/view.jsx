@@ -7,7 +7,7 @@ export default React.createClass({
         window.ui = ui;
 
         function showModalWaiting() {
-            ui.showWaiting(1);
+            ui.showWaiting(true);
             setTimeout(ui.closeWaiting, 3e3);
         }
 
@@ -35,7 +35,7 @@ export default React.createClass({
 
         return (
             <div>
-                <a onClick={ui.showWaiting} className="btn">show waiting</a>
+                <a onClick={() => ui.showWaiting()} className="btn">show waiting</a>
                 <a onClick={showModalWaiting} className="btn">show modal waiting 3s</a>
                 <a onClick={ui.closeWaiting} className="btn">close waiting</a>
                 <br/>

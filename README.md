@@ -32,17 +32,20 @@ view.js
 ```js
 import React from 'react';
 // Use Anywhere
-import ui from 'react-ui';
+import ui from 'react-roui';
+
 export default React.createClass({
-    render: function(){
+    render(){
+        window.ui = ui;
 
         function showModalWaiting() {
-            ui.showWaiting(1);
+            ui.showWaiting(true);
             setTimeout(ui.closeWaiting, 3e3);
         }
 
         function menu() {
             ui.menu({
+                title: '请选择喜欢的数字',
                 btns: [0,'<a class="test">1</a>'],
 
                 action: function(i){
@@ -64,7 +67,7 @@ export default React.createClass({
 
         return (
             <div>
-                <a onClick={ui.showWaiting} className="btn">show waiting</a>
+                <a onClick={() => ui.showWaiting()} className="btn">show waiting</a>
                 <a onClick={showModalWaiting} className="btn">show modal waiting 3s</a>
                 <a onClick={ui.closeWaiting} className="btn">close waiting</a>
                 <br/>
@@ -77,7 +80,6 @@ export default React.createClass({
         );
     }
 });
-
 ```
 
 ## Thanks

@@ -4,8 +4,8 @@ import './ui.less';
 
 var Waiting = React.createClass({
     render: function() {
-        var waiting = this.props.waiting;
-        var mask = waiting < 2 ? <div className="ui-mask"/> : null;
+        var { waiting, isModal } = this.props;
+        var mask = isModal ? <div className="ui-mask"/> : null;
 
         return waiting ? (
             <div id="ui-waiting">
@@ -119,6 +119,7 @@ export var UI = React.createClass({
     getInitialState: function() {
         return {
             waiting: 0,
+            modalWaiting: 0,
             toast: '',
 
             menuState: 0,
@@ -130,12 +131,12 @@ export var UI = React.createClass({
         setState = this.setState.bind(this);
     },
     render: function() {
-        var state = this.state;
+        let { waiting, modalWaiting, toast } = this.state;
 
         return (
             <div>
-                <Waiting waiting={state.waiting}/>
-                <Toast toast={state.toast}/>
+                <Waiting waiting={waiting} isModal={modalWaiting}/>
+                <Toast toast={toast}/>
                 <Menu/>
                 <Dialog/>
                 {this.props.children}
@@ -145,8 +146,8 @@ export var UI = React.createClass({
 });
 
 export default {
-    showWaiting: function(state){
-        setState({ waiting: state || 1 });
+    showWaiting: function(isModal){
+        setState({ waiting: 1, modalWaiting: !!isModal });
     },
     closeWaiting: function() {
         setState({ waiting: 0 });
