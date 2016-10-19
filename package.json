@@ -1,6 +1,6 @@
 {
   "name": "react-roui",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "React Interactions, Render Once Use Anywhere",
   "main": "./lib/react-roui.js",
   "scripts": {
